@@ -63,16 +63,28 @@ window.onload = () => {
 		const number2 = Number.parseInt(inp2.value, 10);
 
 		const doCalculation = () => {
-			switch (operation.value) {
-				case "sum":
-					return number1 + number2;
-				case "sub":
-					return number1 - number2;
-				case "mult":
-					return number1 * number2;
-				case "div":
-					return number1 / number2;
-			}
+			// через switch case
+			// switch (operation.value) {
+			// 	case "sum":
+			// 		return number1 + number2;
+			// 	case "sub":
+			// 		return number1 - number2;
+			// 	case "mult":
+			// 		return number1 * number2;
+			// 	case "div":
+			// 		return number1 / number2;
+			// }
+
+			// 2ой способ
+			const calcFn = {
+				sum: (a, b) => a + b,
+				sub: (a, b) => a - b,
+				mult: (a, b) => a * b,
+				div: (a, b) => a / b,
+				mod: (a, b) => a % b,
+			};
+			const total = calcFn[operation.value](number1, number2);
+			return total;
 		};
 
 		if (!number1 || !number2) {
